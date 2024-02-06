@@ -1,5 +1,5 @@
 using System;
-using System.IO.Enumeration;
+// using System.IO.Enumeration;
 
 class Program
 {
@@ -11,7 +11,6 @@ class Program
         bool running = true;
         while (running)
         {
-            // System.Console.Clear();
             int choice = ShowMenu();
 
             if (choice == 1) 
@@ -64,13 +63,13 @@ class Program
     {
         Console.Write("Enter a filename to save the journal to: ");
         var filename = Console.ReadLine();
-        System.IO.File.WriteAllLines(filename, lines);
+        File.WriteAllLines(filename, lines);
     }
     static string[] LoadJournal() 
     {
         Console.Write("Enter filename to load a journal from: ");
         var filename = Console.ReadLine();
-        return System.IO.File.ReadAllLines(filename);
+        return File.ReadAllLines(filename);
     }
 
 

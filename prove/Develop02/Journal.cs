@@ -17,16 +17,11 @@ public class Journal
     }
 
     public void DisplayEntries()
-    {
-        Console.WriteLine("Entries:\n");
-        
+    {   
         foreach (var entry in entries)
         {
             Console.WriteLine(entry.DisplayEntry());
         }
-
-        Console.WriteLine("Press any key to continue...");
-        Console.Read();
     }
 
     public string[] Export()

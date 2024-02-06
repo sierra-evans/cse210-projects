@@ -16,7 +16,7 @@ public class Entry
 
     public Entry(string import) 
     {
-        var sections = import.Split("\n");
+        var sections = import.Split("|");
         this.date = sections[0];
         this.prompt = sections[1];
         this.response = sections[2];
@@ -24,11 +24,11 @@ public class Entry
 
     public string ExportEntry()
     {
-        return $"{date}\n{prompt}\n{response}\n";
+        return $"{date}|{prompt}|{response}";
     }
 
     public string DisplayEntry()
     {
-        return $"{date}\nPrompt: {prompt}\nResponse: {response}\n";
+        return $"{date}|Prompt: {prompt}|Response: {response}";
     }
 }
