@@ -1,23 +1,15 @@
 public class Word {
-    public string word;
-    public bool isHidden;
+    public string Text;
+    public bool IsHidden;
 
-    public Word(string word)
+    public Word(string text)
     {
-        this.word = word;
-        isHidden = false;
+        Text = text;
+        IsHidden = false;
     }
 
-    // private int countLetters(string word)
-    // {
-    //     int numLetters = word.Count(char.IsLetter);
-    //     return numLetters;
-    // }
-
-    public void hideWord()
+    public void Hide()
     {
-        isHidden = true;
+        IsHidden = true;
     }
-
-    
 }

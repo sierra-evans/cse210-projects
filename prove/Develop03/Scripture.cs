@@ -9,9 +9,9 @@ public class Scripture {
         reference = new Reference(referenceText);
         words = new List<Word>();
 
-        string[] words = scriptureText.Split(' ');
+        string[] wordList = scriptureText.Split(' ');
 
-        foreach (string word in words)
+        foreach (string word in wordList)
         {
             words.Add(new Word(word));
         }
@@ -27,30 +27,57 @@ public class Scripture {
 
     }
 
-    // private List<string> convertToList(string text)
-    // {
-    //     text = "And now, my sons, remember, remember that it is upon the rock of our Redeemer, who is Christ, the Son of God, that ye must build your foundation; that when the devil shall send forth his mighty winds, yea, his shafts in the whirlwind, yea, when all his hail and his mighty storm shall beat upon you, it shall have no power over you to drag you down to the gulf of misery and endless wo, because of the rock upon which ye are built, which is a sure foundation, a foundation whereon if men build they cannot fall.";
-    //     List<string> words = text.Split(' ').ToList();
-    //     return words;
-    // }
-
     public void DisplayScripture()
     {
-        
+        Console.WriteLine(reference.GetReference());
+        foreach (Word word in words)
+        {
+            Console.Write(word.IsHidden ? "___ " : word.Text + " ");
+            // if (word.IsHidden == true)
+            // {
+            //     Console.WriteLine("___ ");
+            // }
+            // else 
+            // {
+            //     Console.WriteLine(word.Text + " ");
+            // }
+        }
     }
 
-    private string chooseRandomWord(List<string> words)
+    public void HideRandomWords(int numberOfWords)
     {
-        int length = words.Count;
-        int numWords = length - 1;
-        Random r = new Random();
-        int randomIndex = r.Next(0, numWords);
-        string randomWord = words[randomIndex];
-        return randomWord;
+        Random random = new Random();
+
+        // Get all the words that are not already hidden
+        List<Word> availableWords = words.Where(word => !word.IsHidden).ToList();
+
+        // Hide a specified number of random words
+        int wordsToHideCount = Math.Min(numberOfWords, availableWords.Count);
+        for (int i = 0; i < wordsToHideCount; i++)
+        {
+            int index = random.Next(0, availableWords.Count);
+            availableWords[index].Hide();
+            availableWords.RemoveAt(index);
+        }
     }
 
-    public string createScripture()
+    public bool HasHiddenWords()
     {
-        
+        return words.Any(word => !word.IsHidden);
     }
+
+    // private string chooseRandomWord(List<string> words)
+    // {
+    //     int length = words.Count;
+    //     int numWords = length - 1;
+    //     Random r = new Random();
+    //     int randomIndex = r.Next(0, numWords);
+    //     string randomWord = words[randomIndex];
+    //     return randomWord;
+    // }
+
+    // public string createScripture()
+    // {
+        
+    // }
 }
