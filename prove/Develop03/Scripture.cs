@@ -1,5 +1,3 @@
-using System.ComponentModel.DataAnnotations;
-
 public class Scripture {
     private Reference reference;
     private List<Word> words;
