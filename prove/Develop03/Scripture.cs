@@ -4,9 +4,9 @@ public class Scripture {
     private Reference reference;
     private List<Word> words;
 
-    public Scripture(string referenceText, string scriptureText)
+    public Scripture(string book, int chapter, int verseStart, int verseEnd, string scriptureText)
     {
-        reference = new Reference(referenceText);
+        reference = new Reference(book, chapter, verseStart, verseEnd);
         words = new List<Word>();
 
         string[] wordList = scriptureText.Split(' ');
@@ -15,16 +15,6 @@ public class Scripture {
         {
             words.Add(new Word(word));
         }
-        
-        // string book = "Helaman";
-        // int chapter = 5;
-        // int verseStart = 12;
-        // int verseEnd = 12;
-        // Reference reference = new Reference(book, chapter, verseStart, verseEnd);
-        // reference = reference.convertToString(verseStart, verseEnd);
-        // reference = reference.ExportReference();
-        // words = convertToList(text);
-
     }
 
     public void DisplayScripture()
@@ -32,15 +22,19 @@ public class Scripture {
         Console.WriteLine(reference.GetReference());
         foreach (Word word in words)
         {
-            Console.Write(word.IsHidden ? "___ " : word.Text + " ");
-            // if (word.IsHidden == true)
-            // {
-            //     Console.WriteLine("___ ");
-            // }
-            // else 
-            // {
-            //     Console.WriteLine(word.Text + " ");
-            // }
+            if (word.IsHidden == true)
+            {
+                int wordLength = word.Text.Length;
+                for (int i = 0; i < wordLength; i++)
+                {
+                    Console.Write("_");
+                }
+                Console.Write(" "); 
+            }
+            else 
+            {
+                Console.Write(word.Text + " ");
+            }
         }
     }
 
@@ -48,10 +42,8 @@ public class Scripture {
     {
         Random random = new Random();
 
-        // Get all the words that are not already hidden
         List<Word> availableWords = words.Where(word => !word.IsHidden).ToList();
 
-        // Hide a specified number of random words
         int wordsToHideCount = Math.Min(numberOfWords, availableWords.Count);
         for (int i = 0; i < wordsToHideCount; i++)
         {
@@ -65,19 +57,4 @@ public class Scripture {
     {
         return words.Any(word => !word.IsHidden);
     }
-
-    // private string chooseRandomWord(List<string> words)
-    // {
-    //     int length = words.Count;
-    //     int numWords = length - 1;
-    //     Random r = new Random();
-    //     int randomIndex = r.Next(0, numWords);
-    //     string randomWord = words[randomIndex];
-    //     return randomWord;
-    // }
-
-    // public string createScripture()
-    // {
-        
-    // }
 }
