@@ -6,27 +6,71 @@ class Reflection : Activity {
     {
         this.prompts = prompts;
         this.questions = questions;
+    }
+	public void ReflectionExercise()
+    {
+        Console.WriteLine();
+        DisplayStartMessage(name, description);
+        Console.WriteLine();
+
+        int duration = GetDuration();
+
+        Console.WriteLine();
+        DisplayWaitMessage();
+        Console.WriteLine();
+
+        string prompt = GetRandomPrompt(prompts);
+
+        DisplayPrompt(prompt);
+        Console.WriteLine("Press enter when you have something in mind.");
+
+        if (Console.ReadKey().Key == ConsoleKey.Enter)
+        {
+            bool activityComplete = false;
+            DateTime startTime = DateTime.Now;
+            DateTime endTime = startTime.AddSeconds(duration);
+            Console.WriteLine("Ponder these questions:");
+            Console.WriteLine();
+            while (activityComplete != true)
+            {
+                string question = GetRandomQuestion(questions);
+                DisplayQuestion(question);
+                DisplayAnimation();
+                DisplayAnimation();
+                activityComplete = CheckTime(endTime);
+            }
+            int roundedSeconds = GetSeconds(startTime);
+            DisplayEndMessage(roundedSeconds, name);
+            DisplayAnimation();
+            DisplayAnimation();
+        }
+    }
+
+	public string GetRandomPrompt(List<string> prompts)
+    {
+        Random random = new Random();
         
-        // prompts = ["Think of a time when you stood up for someone else.", "Think of a time when you did something really difficult.", "Think of a time when you helped someone in need.", "Think of a time when you did something truly selfless."];
-        // questions = ["Why was this experience meaningful to you?", "Have you ever done anything like this before?", "How did you get started?", "How did you feel when it was complete?", "What made this time different than other times when you were not as successful?", "What is your favorite thing about this experience?", "What could you learn from this experience that applies to other situations?", "What did you learn about yourself through this experience?", "How can you keep this experience in mind in the future?"];
-
+        int index = random.Next(0, prompts.Count);
+        string prompt = prompts[index];
+        return prompt;
     }
-	public int ReflectionExercise()
+
+    public void DisplayPrompt(string prompt)
     {
-
+        Console.WriteLine($"Consider the following prompt:\n---{prompt}---");
     }
 
-	public string GetRandomPrompt()
+	public string GetRandomQuestion(List<string> questions)
     {
-
+        Random random = new Random();
+        
+        int index = random.Next(0, questions.Count);
+        string question = questions[index];
+        return question;
     }
-	public string GetRandomQuestion()
+
+    public void DisplayQuestion(string question)
     {
-
+        Console.WriteLine($"{question}");
     }
-	public string DisplayNumItems()
-    {
-
-    }
-
 }

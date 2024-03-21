@@ -1,35 +1,43 @@
 class Breathing : Activity {
-    public Breathing(string name, string description)
+    public Breathing(string name, string description) : base(name, description)
     {
-        this.name = name;
-        this.description = description;
+    
     }
-	public int BreathingExercise()
+	public void BreathingExercise()
     {
-        base.DisplayStartMessage(name, description);
+        Console.WriteLine();
+        DisplayStartMessage(name, description);
+        Console.WriteLine();
 
-        duration = base.GetDuration();
+        int duration = GetDuration();
+        
+        Console.WriteLine();
+        DisplayWaitMessage();
+        Console.WriteLine();
 
-        bool activityComplete;
+        bool activityComplete = false;
         DateTime startTime = DateTime.Now;
         DateTime endTime = startTime.AddSeconds(duration);
         while (activityComplete != true)
         {
-
-            activityComplete = base.CheckTime();
+            DisplayBreathing();
+            Console.WriteLine();
+            activityComplete = CheckTime(endTime);
         }
-        seconds = base.GetSeconds(startTime);
-
-
-
+        int roundedSeconds = GetSeconds(startTime);
+        Console.WriteLine();
+        DisplayEndMessage(roundedSeconds, name);
+        DisplayAnimation();
+        DisplayAnimation();
     }
     
     public void DisplayBreathing()
     {
-        Console.WriteLine("Breathe in...")
-        Console.WriteLine("Breathe out...")
+        Console.Write("Breathe in...");
+        DisplayAnimation();
+        Console.WriteLine();
+        Console.Write("Breathe out...");
+        DisplayAnimation();
+        Console.WriteLine();
     }
-
-
-
 }
