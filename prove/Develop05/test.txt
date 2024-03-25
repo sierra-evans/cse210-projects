@@ -1,0 +1,3 @@
+10
+E:[ ]|happy day|have a happy day|10|1|400000000
+S:[ ]|sad day|have a sad day|5|0|1
