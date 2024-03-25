@@ -32,43 +32,4 @@ public class Eternal : Goal
     {
         return "E:" + base.Export();
     }
-
-    // public override void PerformTask()
-    // {
-
-    // }
 }
-
-// TEST CODE
-
-// public class Eternal : Goal 
-// {
-//     public Eternal() : base()
-//     {
-//         // Constructor for creating a new eternal goal
-//     }
-
-//     public Eternal(string values) : base(values)
-//     {
-//         // Constructor for loading an eternal goal from a string
-//     }
-
-//     // Override Display method to include the type of goal
-//     public override void Display()
-//     {
-//         Console.Write("[Eternal] ");
-//         base.Display();
-//     }
-
-//     // Override Export method to include the type identifier
-//     public override string Export()
-//     {
-//         return "E:" + base.Export();
-//     }
-
-//     // Override GetCompletionNumber method for eternal goals
-//     public override int GetCompletionNumber()
-//     {
-//         return int.MaxValue; // Eternal goals have no completion limit
-//     }
-// }

@@ -26,37 +26,4 @@ public class Simple : Goal
     {
         return "S:" + base.Export();
     }
-
-    // public override void PerformTask()
-    // {
-
-    // }
 }
-
-// TEST CODE
-
-// public class Simple : Goal
-// {
-//     public Simple() : base()
-//     {
-//         // Constructor for creating a new simple goal
-//     }
-
-//     public Simple(string values) : base(values)
-//     {
-//         // Constructor for loading a simple goal from a string
-//     }
-
-//     // Override Display method to include the type of goal
-//     public override void Display()
-//     {
-//         Console.Write("[Simple] ");
-//         base.Display();
-//     }
-
-//     // Override Export method to include the type identifier
-//     public override string Export()
-//     {
-//         return "S:" + base.Export();
-//     }
-// }
