@@ -2,27 +2,54 @@ public class Order
 {
     List<Product> products;
     Customer customer;
+    private int identifier;
 
-    public Order()
+    public Order(int identifier)
     {
+        this.identifier = identifier;
         products = GetProducts();
         customer = GetCustomer();
     }
 
     public List<Product> GetProducts()
     {
-        
+        if (identifier == 1)
+        {
+            List<Product> products = new List<Product>();
+            Product product1 = new Product("tank top", "623A", 12, 3);
+            products.Add(product1);
+            Product product2 = new Product("sweater", "603B", 18, 2);
+            products.Add(product2);
+            return products;
+        }
+        else
+        {
+            List<Product> products = new List<Product>();
+            Product product1 = new Product("face wash", "323C", 10, 2);
+            products.Add(product1);
+            Product product2 = new Product("face lotion", "303D", 8, 3);
+            products.Add(product2);
+            return products;
+        }
     }
 
     public Customer GetCustomer()
     {
-        customer = new Customer("Sierra");
-        return customer;
+        if (identifier == 1)
+        {
+            customer = new Customer("Sierra", 1);
+            return customer;
+        }
+        else
+        {
+            customer = new Customer("Sariah", 2);
+            return customer;
+        }
     }
 
-    public double ComputeTotalCost()
+    public int ComputeTotalCost()
     {
-        double totalCost = 0;
+        int totalCost = 0;
 
         if (customer.IsInUSA())
         {
@@ -63,7 +90,6 @@ public class Order
         {
             Console.WriteLine(line);
         }
-
     }
 
     public List<string> CreateShippingLabel()
@@ -89,7 +115,9 @@ public class Order
     public void DisplayOrder()
     {
         DisplayPackingLabel();
+        Console.WriteLine();
         DisplayShippingLabel();
+        Console.WriteLine();
         double totalCost = ComputeTotalCost();
         Console.WriteLine($"Total Cost: {totalCost}");
     }

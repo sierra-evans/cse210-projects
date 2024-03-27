@@ -2,10 +2,10 @@ public class Product
 {
     private string name;
     private string productId;
-    private double pricePerUnit;
+    private int pricePerUnit;
     private int quantity;
 
-    public Product(string name, string productId, double pricePerUnit, int quantity)
+    public Product(string name, string productId, int pricePerUnit, int quantity)
     {
         this.name = name;
         this.productId = productId;
@@ -13,9 +13,9 @@ public class Product
         this.quantity = quantity;
     }
 
-    public double ComputeProductCost()
+    public int ComputeProductCost()
     {
-        double productCost = pricePerUnit * quantity;
+        int productCost = pricePerUnit * quantity;
         return productCost;
     }
 

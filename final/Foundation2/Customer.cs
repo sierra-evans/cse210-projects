@@ -1,18 +1,34 @@
+using System.ComponentModel;
+
 public class Customer
 {
     private string name;
     Address address;
+    private int customerIdentifier;
 
-    public Customer(string name)
+    public Customer(string name, int customerIdentifier)
     {
         this.name = name;
+        this.customerIdentifier = customerIdentifier;
         address = GetAddress();
     }
 
     public Address GetAddress()
     {
-        address = new Address("18612 N. Peachtree Blvd.", "Queen Creek", "AZ", "USA");
-        return address;
+        if (customerIdentifier == 1)
+        {
+            address = new Address("18612 N. Peachtree Blvd.", "Queen Creek", "AZ", "USA");
+            return address;
+        }
+        else if (customerIdentifier == 2)
+        {
+            address = new Address("18612 N. Peachtree Blvd.", "Queen Creek", "AZ", "Canada");
+            return address;
+        }
+        else
+        {
+            return null;
+        }
     }
 
     public bool IsInUSA()
