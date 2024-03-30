@@ -17,12 +17,12 @@ public class Customer
     {
         if (customerIdentifier == 1)
         {
-            address = new Address("18612 N. Peachtree Blvd.", "Queen Creek", "AZ", "USA");
+            address = new Address("4430 N. Peachtree Blvd.", "Queen Creek", "AZ", "USA");
             return address;
         }
         else if (customerIdentifier == 2)
         {
-            address = new Address("18612 N. Peachtree Blvd.", "Queen Creek", "AZ", "Canada");
+            address = new Address("6620 N. Peartree Ave.", "Ottowa", "ON", "Canada");
             return address;
         }
         else

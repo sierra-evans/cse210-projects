@@ -3,14 +3,15 @@ public class Lecture : Event
     private string speaker;
     private int capacity;
 
-    public Lecture(string title, string description, string date, string time, Address address, string type, string speaker, int capacity) : base(title, description, date, time, address, type)
+    public Lecture(string title, string description, string date, string time, string type, string speaker, int capacity) : base(title, description, date, time, type)
     {
         this.speaker = speaker;
         this.capacity = capacity;
     }
 
-    public override string GetFull()
+    public override void DisplayFull()
     {
-        return base.GetFull();
+        base.DisplayFull();
+        Console.WriteLine($"Speaker: {speaker}\nCapacity: {capacity}");
     }
 }

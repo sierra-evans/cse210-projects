@@ -15,10 +15,8 @@ public class Address
         this.country = country;
     }
 
-    public void DisplayAddress()
+    public string GetDisplayAddress()
     {
-        Console.WriteLine($"{streetAddress}");
-        Console.WriteLine($"{city}, {stateOrProvince}");
-        Console.WriteLine($"{country}");
+        return $"{streetAddress}\n{city}, {stateOrProvince}\n{country}";
     }
 }
