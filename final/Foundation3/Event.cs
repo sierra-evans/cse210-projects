@@ -29,7 +29,7 @@ public class Event
     {
         // Lists the title, description, date, time, and address.
         
-        Console.WriteLine($"Title : {title}\nDescription: {description}\nDate: {date}\nTime: {time}\nAddress:/n{address.GetDisplayAddress()}");
+        Console.WriteLine($"Title : {title}\nDescription: {description}\nDate: {date}\nTime: {time}\nAddress:\n{address.GetDisplayAddress()}");
     }
 
     public void DisplayShort()

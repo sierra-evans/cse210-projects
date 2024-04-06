@@ -1,7 +1,7 @@
 public class Order
 {
-    List<Product> products;
-    Customer customer;
+    private List<Product> products;
+    private Customer customer;
     private int identifier;
 
     public Order(int identifier)

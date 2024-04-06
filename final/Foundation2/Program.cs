@@ -17,7 +17,7 @@ class Program
         foreach (var order in orders)
         {
             Console.WriteLine($"Order {counter}:");
-            Console.WriteLine();
+            Console.WriteLine("---------------------------------");
             order.DisplayOrder();
             Console.WriteLine();
             counter += 1;
