@@ -56,9 +56,4 @@ class Program
         Console.WriteLine("-----------------------");
         reception.DisplayFull();
     }
-
-    // static void DisplayDetails(Event event)
-    // {
-
-    // }
 }
